@@ -28,7 +28,8 @@ BOOL APIENTRY DllMain(
 	return TRUE;
 }
 
-void friendly_message()
+
+void API freindly_message()
 {
 	MessageBoxA(0, "Good Day, friend!", "Egg", MB_OK);
 }

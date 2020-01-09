@@ -1,4 +1,5 @@
 #pragma once
+
 #ifdef EGG_EXPORT
 #define API __declspec(dllexport)
 #else
