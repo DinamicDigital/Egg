@@ -7,8 +7,8 @@ typedef struct egg_window {
 
 	// Internal Stuff
 	HWND hWindow;
-	LPCSTR* windowClassName;
-	WNDCLASS windowClass;
+	char* windowClassName;
+	WNDCLASS* windowClass;
 
 } Window;
 
@@ -19,6 +19,6 @@ LRESULT CALLBACK WindowProc(
 	LPARAM lParam
 );
 
-void InitWindow();
+void API init_window();
 
 void API setWindowCaption();

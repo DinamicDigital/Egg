@@ -22,6 +22,7 @@
     <ClCompile Include="Source\Core\Engine.cpp" />
     <ClCompile Include="Source\EggDLL.cpp" />
     <ClCompile Include="Source\System\Window.cpp" />
+    <ClCompile Include="Source\Util\Debug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Engine.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="Source\EggDLL.h" />
     <ClInclude Include="Source\System\Window.h" />
     <ClInclude Include="Source\Util\API.h" />
+    <ClInclude Include="Source\Util\Debug.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
