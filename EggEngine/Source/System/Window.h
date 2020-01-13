@@ -3,12 +3,16 @@
 #include <Windows.h>
 
 typedef struct egg_window {
+	// My stuff
 	char* caption;
+	int width; int height;
+
+	
 
 	// Internal Stuff
 	HWND hWindow;
 	char* windowClassName;
-	WNDCLASS* windowClass;
+	WNDCLASS windowClass;
 
 } Window;
 
@@ -21,4 +25,4 @@ LRESULT CALLBACK WindowProc(
 
 void API init_window();
 
-void API setWindowCaption();
+void API setWindowCaption(const char* caption);

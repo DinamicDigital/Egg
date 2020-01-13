@@ -2,8 +2,8 @@
 
 int main()
 {
-	freindly_message();
 	init_window();
-	debug_message("Works!");
+	setWindowCaption("EggWorld");
+	debug_message("yeet");
 	return 0;
 }

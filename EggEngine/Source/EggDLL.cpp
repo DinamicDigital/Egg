@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include "EggDLL.h"
 
+// Maybe use for something??
+
 BOOL APIENTRY DllMain(
 	HANDLE hModule,	   // Handle to DLL module 
 	DWORD ul_reason_for_call,
@@ -26,10 +28,4 @@ BOOL APIENTRY DllMain(
 	}
 	*/
 	return TRUE;
-}
-
-
-void API freindly_message()
-{
-	MessageBoxA(0, "Good Day, friend!", "Egg", MB_OK);
 }
