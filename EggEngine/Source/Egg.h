@@ -5,4 +5,6 @@
 
 #include "System/Window.h"
 
+#include "Core/Engine.h"
+
 #include "EggDLL.h"

@@ -2,8 +2,9 @@
 
 int main()
 {
-	init_window();
+	
+	StartEngine();
 	setWindowCaption("EggWorld");
-	debug_message("yeet");
+	
 	return 0;
 }

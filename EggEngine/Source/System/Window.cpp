@@ -3,7 +3,7 @@
 
 static Window window;
 
-void API init_window()
+void init_window()
 {
 	window = {};
 	window.caption = (char*) "Egg Engine - Use set_window_caption() to change window title.";
@@ -31,6 +31,7 @@ void API init_window()
 
 void API setWindowCaption(const char* caption)
 {
+	window.caption = (char*) caption;
 	SetWindowTextA(window.hWindow, caption);
 }
 
@@ -43,7 +44,26 @@ LRESULT CALLBACK WindowProc(
 {
 	switch (uMsg)
 	{
+	case WM_SIZE:
+	{
+		
+	} break;
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hwnd, &ps);
 
+		// All painting occurs here, between BeginPaint and EndPaint.
+
+		FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+
+		EndPaint(hwnd, &ps);
+	} break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	default:
+	break;
 	}
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }

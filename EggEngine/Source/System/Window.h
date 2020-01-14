@@ -23,6 +23,6 @@ LRESULT CALLBACK WindowProc(
 	LPARAM lParam
 );
 
-void API init_window();
+void init_window();
 
 void API setWindowCaption(const char* caption);
