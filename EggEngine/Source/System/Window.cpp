@@ -1,26 +1,41 @@
 #include "Window.h"
 #include "../Util/Debug.h"
 
+typedef struct egg_window {
+	
+	WindowSettings* window_settings;
+
+
+	// Internal Stuff
+	HWND hWindow;
+	char* windowClassName;
+	WNDCLASS windowClass;
+
+} Window;
+
 static Window window;
 
 void init_window()
 {
+	
 	window = {};
-	window.caption = (char*) "Egg Engine - Use set_window_caption() to change window title.";
 	window.windowClassName = (char*) "EGG_WINDOW";
 	window.windowClass = { };
 	window.windowClass.lpfnWndProc = WindowProc;
 	window.windowClass.lpszClassName = window.windowClassName;
 	
 	RegisterClass(&(window.windowClass));
-
-	window.hWindow = CreateWindowExA(0, window.windowClassName, window.caption, WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+	
+	printf("%s\n%d\n%d\n%d\n", window.window_settings->caption, window.window_settings->width, window.window_settings->height, window.window_settings->resizable);
+	
+	window.hWindow = CreateWindowExA(0, window.windowClassName, window.window_settings->caption, 
+		(window.window_settings->resizable == true) ? WS_OVERLAPPEDWINDOW : WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME,
+		CW_USEDEFAULT, CW_USEDEFAULT, window.window_settings->width, window.window_settings->height,
 		0, 0, GetModuleHandle(0), 0);
 
 	if (window.hWindow == 0)
 	{
-		debug_message("Window failed to init.");
+		debug_popup("Window failed to init.");
 		return;
 	}
 
@@ -31,7 +46,7 @@ void init_window()
 
 void API setWindowCaption(const char* caption)
 {
-	window.caption = (char*) caption;
+	window.window_settings->caption = (char*) caption;
 	SetWindowTextA(window.hWindow, caption);
 }
 
@@ -66,4 +81,9 @@ LRESULT CALLBACK WindowProc(
 	break;
 	}
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
+
+void API setWindowSettings(WindowSettings* window_settings)
+{
+	window.window_settings = window_settings;
 }

@@ -2,19 +2,14 @@
 #include "../Util/API.h"
 #include <Windows.h>
 
-typedef struct egg_window {
+typedef struct egg_win_settings {
 	// My stuff
 	char* caption;
 	int width; int height;
-
+	bool resizable;
 	
 
-	// Internal Stuff
-	HWND hWindow;
-	char* windowClassName;
-	WNDCLASS windowClass;
-
-} Window;
+} WindowSettings;
 
 LRESULT CALLBACK WindowProc(
 	HWND   hwnd,
@@ -22,6 +17,7 @@ LRESULT CALLBACK WindowProc(
 	WPARAM wParam,
 	LPARAM lParam
 );
+void API setWindowSettings(WindowSettings* window_settings);
 
 void init_window();
 

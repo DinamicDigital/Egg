@@ -1,4 +1,5 @@
 #pragma once
 #include "API.h"
+#include <stdio.h>
 
-void API debug_message(const char* message);
+void API debug_popup(const char* message);
