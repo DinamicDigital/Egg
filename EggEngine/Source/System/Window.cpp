@@ -18,7 +18,6 @@ static Window window;
 void init_window()
 {
 	
-	window = {};
 	window.windowClassName = (char*) "EGG_WINDOW";
 	window.windowClass = { };
 	window.windowClass.lpfnWndProc = WindowProc;
