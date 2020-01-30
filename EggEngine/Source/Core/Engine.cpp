@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "../System/Window.h"
 #include <Windows.h>
+#include <gl/GL.h>
 void API StartEngine()
 {
 	init_window();

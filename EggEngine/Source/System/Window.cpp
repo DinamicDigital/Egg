@@ -106,8 +106,9 @@ LRESULT CALLBACK WindowProc(
 	} break;
 	case WM_PAINT:
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		
 		BeginPaint(hwnd, &ps);
+		
 		EndPaint(hwnd, &ps);
 	} break;
 	case WM_DESTROY:
