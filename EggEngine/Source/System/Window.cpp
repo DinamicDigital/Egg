@@ -1,6 +1,7 @@
 #include "Window.h"
 #include "../Util/Debug.h"
 #include <gl/GL.h>
+#include <GLFW/glfw3.h>
 
 typedef struct egg_window {
 	
@@ -8,10 +9,7 @@ typedef struct egg_window {
 
 
 	// Internal Stuff
-	HGLRC glContext;
-	HWND hWindow;
-	char* windowClassName;
-	WNDCLASS windowClass;
+	GLFWwindow* window;
 
 } Window;
 
@@ -20,20 +18,7 @@ static Window window;
 void init_window()
 {
 	
-	window.windowClassName = (char*) "EGG_WINDOW";
-	window.windowClass = { };
-	window.windowClass.lpfnWndProc = WindowProc;
-	window.windowClass.lpszClassName = window.windowClassName;
-	window.windowClass.style = CS_OWNDC;
 	
-	RegisterClass(&(window.windowClass));
-	
-	
-	
-	window.hWindow = CreateWindowExA(0, window.windowClassName, window.window_settings->caption, 
-		(window.window_settings->resizable == true) ? WS_OVERLAPPEDWINDOW : WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME,
-		CW_USEDEFAULT, CW_USEDEFAULT, window.window_settings->width, window.window_settings->height,
-		0, 0, GetModuleHandle(0), 0);
 
 	if (window.hWindow == 0)
 	{
@@ -41,7 +26,6 @@ void init_window()
 		return;
 	}
 
-	ShowWindow(window.hWindow, SW_SHOW);
 
 	
 }
