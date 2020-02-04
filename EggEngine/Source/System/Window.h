@@ -11,14 +11,8 @@ typedef struct egg_win_settings {
 
 } WindowSettings;
 
-LRESULT CALLBACK WindowProc(
-	HWND   hwnd,
-	UINT   uMsg,
-	WPARAM wParam,
-	LPARAM lParam
-);
-void API setWindowSettings(WindowSettings* window_settings);
-
 void init_window();
+
+void API setWindowSettings(WindowSettings* window_settings);
 
 void API setWindowCaption(const char* caption);

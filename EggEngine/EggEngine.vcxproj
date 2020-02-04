@@ -23,6 +23,7 @@
     <ClCompile Include="Source\EggDLL.cpp" />
     <ClCompile Include="Source\System\Window.cpp" />
     <ClCompile Include="Source\Util\Debug.cpp" />
+    <ClCompile Include="Source\Vendor\glad\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Engine.h" />
@@ -31,6 +32,8 @@
     <ClInclude Include="Source\System\Window.h" />
     <ClInclude Include="Source\Util\API.h" />
     <ClInclude Include="Source\Util\Debug.h" />
+    <ClInclude Include="Source\Vendor\glad\glad.h" />
+    <ClInclude Include="Source\Vendor\glad\khrplatform.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

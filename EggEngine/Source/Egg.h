@@ -1,5 +1,7 @@
 #pragma once
 
+// INCLUDE EVERY API FUNCTION here!
+
 #include "Util/API.h"
 #include "Util/Debug.h"
 
