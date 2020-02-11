@@ -1,5 +1,6 @@
 #include "Window.h"
 #include "../Util/Debug.h"
+#include "../Vendor/glad/glad.h"
 #include <GLFW/glfw3.h>
 
 typedef struct egg_window {
@@ -33,10 +34,19 @@ void init_window()
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window.window);
 
+
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+		debug_popup("GLAD not working.");
+		return;
+	}
+
+	glClearColor(0.3, 0.6, 0.5, 1.0);
+
 	while (!glfwWindowShouldClose(window.window))
 	{
 		/* Render here */
-
+		glClear(GL_COLOR_BUFFER_BIT);
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window.window);
 
