@@ -3,17 +3,6 @@
 #include "../Vendor/glad/glad.h"
 #include <GLFW/glfw3.h>
 
-typedef struct egg_window {
-	
-	WindowSettings* window_settings;
-
-
-	// Internal Stuff
-	GLFWwindow* window;
-
-} Window;
-
-static Window window;
 
 void init_window()
 {
